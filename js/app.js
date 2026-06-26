@@ -126,14 +126,16 @@ function restartGame() {
   gameActive = false;
 
   oxygenBar.style.width = "0%";
-  oxygenValue.textContent = "0";
+  oxygenValue.textContent = "0%";
   oxygenText.textContent= "Oxygen Level: 0 / 100";
   targetText.textContent = "Target: --";
   timerText.textContent = "Time: 5";
   countdownText.textContent = "";
-  statusText.textContent = "PRES START";
+  statusText.textContent = "PRESS START";
 
   rocket.classList.remove("launch");
+}
+
 
 
 
