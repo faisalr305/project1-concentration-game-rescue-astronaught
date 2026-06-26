@@ -138,7 +138,7 @@ function restartGame() {
 
 
 
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
+startBtn.addEventListener("click", startGame);
+rescueBtn.addEventListener("click", rescueAstronaut);
+restartBtn.addEventListener("click", restartGame);
