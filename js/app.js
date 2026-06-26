@@ -118,6 +118,22 @@ function endGame(success) {
   }
 }
 
+function restartGame() {
+  clearAll();
+
+  oxygen = 0;
+  timeLeft = 5;
+  gameActive = false;
+
+  oxygenBar.style.width = "0%";
+  oxygenValue.textContent = "0";
+  oxygenText.textContent= "Oxygen Level: 0 / 100";
+  targetText.textContent = "Target: --";
+  timerText.textContent = "Time: 5";
+  countdownText.textContent = "";
+  statusText.textContent = "PRES START";
+
+  rocket.classList.remove("launch");
 
 
 
