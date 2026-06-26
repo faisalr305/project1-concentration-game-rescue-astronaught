@@ -35,7 +35,7 @@ function startGame() {
   targetMin = Math.floor(Math.random() * 90);
   targetMax = targetMin + 10;
 
-  targetText.textContent = Target: ${ targetMin } - ${ targetMax };
+  targetText.textContent = `Target ${ targetMin } - ${ targetMax }`;
   statusText.textContent = "Get Ready...";
   timerText.textContent = "Time: 5";
 
@@ -78,7 +78,7 @@ function beginMission() {
 
     oxygenBar.style.width = oxygen + "%";
     oxygenValue.textContent = oxygen + "%";
-    oxygenText.textContent = Oxygen Level: ${ oxygen } / 100;
+    oxygenText.textContent = `Oxygen Level: ${ oxygen } / 100`;
 
     if (oxygen >= 100) {
       endGame(false);
@@ -87,7 +87,7 @@ function beginMission() {
 
   timerInterval = setInterval(() => {
     timeLeft--;
-    timerText.textContent = Time: ${ timeLeft };
+    timerText.textContent = `Time: ${ timeLeft }`;
 
     if (timeLeft <= 0) {
       endGame(false);
@@ -134,6 +134,11 @@ function restartGame() {
   statusText.textContent = "PRESS START";
 
   rocket.classList.remove("launch");
+}
+function clearAll() {
+  clearInterval(oxygenInterval);
+  clearInterval(timerInterval);
+  clearInterval(countdownInterval);
 }
 
 
