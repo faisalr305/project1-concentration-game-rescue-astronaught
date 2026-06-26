@@ -46,6 +46,27 @@ function startGame() {
   startCountdown();
 }
 
+function startCountdown() {
+  let count = 5;
+  countdownText.textContent = count;
+
+  countdownInterval = setInterval(() => {
+    count--;
+
+    if (count > 0) {
+      countdownText.textContent = count;
+    } else {
+      clearInterval(countdownInterval);
+      countdownText.textContent = "GO!";
+      rocket.classList.add("launch");
+
+      setTimeout(() => {
+        countdownText.textContent = "";
+      
+      }, 1000);
+    }
+  }, 1000);
+}
 
 
 
