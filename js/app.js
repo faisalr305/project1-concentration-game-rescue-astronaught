@@ -62,13 +62,48 @@ function startCountdown() {
 
       setTimeout(() => {
         countdownText.textContent = "";
-      
+        beginMission();
       }, 1000);
     }
   }, 1000);
 }
 
 
+function beginMission() {
+  gameActive = true;
+  statusText.textContent = "Rescue the Astronaut!";
+
+  oxygenInterval = setInterval(() => {
+    oxygen++;
+
+    oxygenBar.style.width = oxygen + "%";
+    oxygenValue.textContent = oxygen + "%";
+    oxygenText.textContent = Oxygen Level: ${oxygen} / 100;
+
+    if (oxygen >= 100) {
+      endGame(false);
+    }
+  }, 50);
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timerText.textContent = Time: ${timeLeft};
+
+    if (timeLeft <= 0) {
+      endGame(false);
+    }
+  }, 1000);
+}
+
+function rescueAstronaut() {
+  if (!gameActive) return;
+
+  if (oxygen >= targetMin && oxygen <= targetMax) {
+    endGame(true);
+  } else {
+    endGame(false);
+  }
+}
 
 
 
