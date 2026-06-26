@@ -1,12 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #071330, #000);
+  min-height: 100vh;
+  background: linear-gradient();
+  background-image: url("https://img.game8.co/3814898/fa8dbf0bfe34d15fdd9e68032cd6ac5e.png/show");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: white;
   text-align: center;
   font-family: Arial, sans-serif;
 }
-
 h1 {
   margin-top: 30px;
   color: #00ff99;
@@ -31,17 +36,27 @@ h1 {
 }
 
 #countdown {
-  font-size: 40px;
-  color: yellow;
+  background: white;       
+  color: black;            
+  padding: 15px 30px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  font-size: 40px;         
   font-weight: bold;
+  border: 4px solid black; 
 }
 
 #target {
-  font-size: 28px;
-  color: orange;
+  background: orange;      
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
   font-weight: bold;
 }
-
 .oxygen-container {
   width: 450px;
   height: 50px;
@@ -69,26 +84,44 @@ h1 {
 }
 
 #oxygen-text {
-  font-size: 22px;
-  color: cyan;
-}
-
-#timer {
+  background: cyan;       
+  color: black;            
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
   font-size: 20px;
-  color: red;
-}
-
-#status {
-  font-size: 24px;
   font-weight: bold;
 }
 
-button {
-  padding: 15px 30px;
+#timer {
+  background: red;         
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
   margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#status {
+  background: #333; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  border: 2px solid white;
+}
+
+
+
+button {
+  padding: 10px 20px;
+  margin: 4px;
   font-size: 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
 }
 

@@ -112,7 +112,7 @@ function endGame(success) {
   rocket.classList.remove("launch");
 
   if (success) {
-    statusText.textContent = "🚀 ASTRONAUT RESCUED!";
+    statusText.textContent = "🚀 GREAT YOU SAVED THE ASTRONAUT!";
   } else {
     statusText.textContent = "💀 MISSION FAILED!";
   }
