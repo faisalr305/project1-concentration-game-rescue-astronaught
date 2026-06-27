@@ -14,31 +14,29 @@ const countdownText = document.querySelector("#countdown");
 const rocket = document.querySelector("#rocket");
 /*-------------------------------- Variables --------------------------------*/
 let oxygen = 0;
-let timeLeft = 5;
 let targetMin = 0;
 let targetMax = 0;
 let gameActive = false;
 let oxygenInterval;
 let timerInterval;
 let countdownInterval;
+let level = 1;
+let targetRange = 10;
 
 /*-------------------------------- Functions --------------------------------*/
-
-
 function startGame() {
   clearAll();
 
   oxygen = 0;
-  timeLeft = 5;
+
   gameActive = false;
 
-  targetMin = Math.floor(Math.random() * 90);
-  targetMax = targetMin + 10;
+  targetMin = Math.floor(Math.random() * (100 - targetRange));
+  targetMax = targetMin +  targetRange;
 
   targetText.textContent = `Target ${ targetMin } - ${ targetMax }`;
   statusText.textContent = "Get Ready...";
   timerText.textContent = "Time: 5";
-
   oxygenBar.style.width = "0%";
   oxygenValue.textContent = "0%";
   oxygenText.textContent = "Oxygen Level: 0 / 100";
@@ -112,7 +110,9 @@ function endGame(success) {
   rocket.classList.remove("launch");
 
   if (success) {
-    statusText.textContent = "🚀 GREAT YOU SAVED THE ASTRONAUT!";
+    statusText.textContent = "🚀 DIFFICULTY INCREASED ";
+    level++;
+    targetRange = Math.max(2,10 - (level-1) *2)
   } else {
     statusText.textContent = "💀 MISSION FAILED!";
   }
@@ -122,14 +122,14 @@ function restartGame() {
   clearAll();
 
   oxygen = 0;
-  timeLeft = 5;
+  level = 1;
   gameActive = false;
 
   oxygenBar.style.width = "0%";
   oxygenValue.textContent = "0%";
   oxygenText.textContent= "Oxygen Level: 0 / 100";
+  targetRange.textContent = `LEVEL ${level}`
   targetText.textContent = "Target: --";
-  timerText.textContent = "Time: 5";
   countdownText.textContent = "";
   statusText.textContent = "PRESS START";
 
@@ -140,8 +140,6 @@ function clearAll() {
   clearInterval(timerInterval);
   clearInterval(countdownInterval);
 }
-
-
 
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener("click", startGame);
