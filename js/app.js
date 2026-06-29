@@ -2,15 +2,15 @@
 const startBtn = document.querySelector("#startbtn");
 const rescueBtn = document.querySelector("#rescuebtn");
 const restartBtn = document.querySelector("#restartbtn");
-
 const oxygenBar = document.querySelector("#oxygen-bar");
 const oxygenValue = document.querySelector("#oxygen-value");
 const oxygenText = document.querySelector("#oxygen-text");
-
 const statusText = document.querySelector("#status");
 const targetText = document.querySelector("#target");
 const timerText = document.querySelector("#timer");
 const countdownText = document.querySelector("#countdown");
+const messageEl = document.querySelector("#message");
+const messageEl2 = document.querySelector("#message2");
 const rocket = document.querySelector("#rocket");
 /*-------------------------------- Variables --------------------------------*/
 let oxygen = 0;
@@ -38,12 +38,13 @@ function startGame() {
   statusText.textContent = "Get Ready...";
   timerText.textContent = "Time: 5";
   oxygenBar.style.width = "0%";
-  oxygenValue.textContent = "0%";
+  oxygenValue.textContent= "0%";
   oxygenText.textContent = "Oxygen Level: 0 / 100";
+  messageEl.style.display = 'none'
+  messageEl2.style.display = 'none'
 
   startCountdown();
 }
-
 function startCountdown() {
   let count = 5;
   countdownText.textContent = count;
@@ -57,7 +58,6 @@ function startCountdown() {
       clearInterval(countdownInterval);
       countdownText.textContent = "GO!";
       rocket.classList.add("launch");
-
       setTimeout(() => {
         countdownText.textContent = "";
         beginMission();
@@ -65,7 +65,6 @@ function startCountdown() {
     }
   }, 1000);
 }
-
 
 function beginMission() {
   gameActive = true;
@@ -95,7 +94,6 @@ function beginMission() {
 
 function rescueAstronaut() {
   if (!gameActive) return;
-
   if (oxygen >= targetMin && oxygen <= targetMax) {
     endGame(true);
   } else {
@@ -103,21 +101,21 @@ function rescueAstronaut() {
   }
 }
 
-
 function endGame(success) {
   clearAll();
   gameActive = false;
   rocket.classList.remove("launch");
 
   if (success) {
-    statusText.textContent = "🚀 DIFFICULTY INCREASED ";
+    messageEl.style.display = 'block'
+    messageEl.textContent = "🚀 DIFFICULTY INCREASED ";
     level++;
     targetRange = Math.max(2,10 - (level-1) *2)
   } else {
-    statusText.textContent = "💀 MISSION FAILED!";
+        messageEl2.style.display = 'block'
+    messageEl2.textContent = "💀 MISSION FAILED!     ";
   }
 }
-
 function restartGame() {
   clearAll();
 
@@ -132,7 +130,8 @@ function restartGame() {
   targetText.textContent = "Target: --";
   countdownText.textContent = "";
   statusText.textContent = "PRESS START";
-
+  messageEl.style.display = 'none'
+  messageEl2.style.display = 'none'
   rocket.classList.remove("launch");
 }
 function clearAll() {
@@ -140,7 +139,6 @@ function clearAll() {
   clearInterval(timerInterval);
   clearInterval(countdownInterval);
 }
-
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener("click", startGame);
 rescueBtn.addEventListener("click", rescueAstronaut);
