@@ -7,13 +7,15 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: background-color 0.4s ease;
 
   color: white;
   text-align: center;
   font-family: Arial, sans-serif;
 }
+
 h1 {
-  background: green;      
+  background: green;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
@@ -36,25 +38,33 @@ h1 {
 }
 
 @keyframes fly {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 #countdown {
-  background: white;       
-  color: black;            
+  background: white;
+  color: black;
   padding: 15px 30px;
   border-radius: 10px;
   display: inline-block;
   margin: 10px;
-  font-size: 18px;         
+  font-size: 18px;
   font-weight: bold;
-  border: 4px solid black; 
+  border: 4px solid black;
 }
 
 #target {
-  background: orange;      
+  background: orange;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
@@ -63,6 +73,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
 }
+
 .oxygen-container {
   width: 450px;
   height: 50px;
@@ -90,8 +101,8 @@ h1 {
 }
 
 #oxygen-text {
-  background: cyan;       
-  color: black;            
+  background: cyan;
+  color: black;
   padding: 10px 20px;
   border-radius: 10px;
   display: none;
@@ -101,12 +112,13 @@ h1 {
 }
 
 #timer {
-  
+
   display: none;
-  
+
 }
+
 #status {
-  background: #333; 
+  background: #19bc07;
   color: white;
   padding: 10px 40px;
   border-radius: 10px;
@@ -116,9 +128,10 @@ h1 {
   font-weight: bold;
 
 }
+
 #message {
-position: absolute;
-color: green;
+  position: absolute;
+  color: lime;
   top: 250px;
   right: 250px;
   height: 100px;
@@ -126,37 +139,102 @@ color: green;
   font-weight: bolder;
 
 }
+
 #message2 {
-position: absolute;
-color: red;
+  position: absolute;
+  color: red;
   top: 250px;
   right: 300px;
   height: 50px;
   font-size: 70px;
   font-weight: bolder;
 }
-button {
+
+#message3 {
+  position: absolute;
+  color: green;
+  top: 250px;
+  right: 300px;
+  height: 50px;
+  font-size: 70px;
+  font-weight: bolder;
+}
+#message4 {
+  position: absolute;
+  color: red;
+  top: 250px;
+  right: 450px;
+  height: 50px;
+  font-size: 80px;
+  font-weight: bolder;
+}
+
+#score {
+  background: red;
+  display: inline-block;
+  color: white;
   padding: 10px 20px;
   margin: 6px;
   font-size: 20px;
   font-weight: bold;
-  border-style: outset;
   border-radius: 10px;
-  cursor: pointer;
-   box-shadow:0 8px 16px 0 rgba(0,0,0,0.6)
 }
+
+#lives {
+  background: grey;
+  display: inline-block;
+  color: white;
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 
 #startbtn {
   background: green;
   color: white;
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+
+
+}
+
+#startbtn:hover {
+  background-color: lime;
+  cursor: pointer;
 }
 
 #rescuebtn {
   background: orange;
   color: white;
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#rescuebtn:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
 
 #restartbtn {
   background: red;
   color: white;
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#restartbtn:hover {
+  background-color: rgb(16, 19, 216);
+  cursor: pointer;
 }
